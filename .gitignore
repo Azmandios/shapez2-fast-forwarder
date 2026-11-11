@@ -1,0 +1,21 @@
+# .NET build output
+src/bin/
+src/obj/
+**/bin/
+**/obj/
+*.pdb
+*.deps.json
+
+# Оригинальный мод 1.0.6: чужие бинарники/декомпиляция, только локально
+reference/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vs/
+*.user
+
+# AI workflow metadata (local only)
+.ai-factory/

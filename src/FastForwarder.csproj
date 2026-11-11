@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <AssemblyName>FastForwarder</AssemblyName>
+    <RootNamespace>Shapez2Mods.FastForwarder</RootNamespace>
+    <Version>1.0.7</Version>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <DebugType>portable</DebugType>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <!-- StaticGameCoreAccessor и IGameSessionManagers помечены [Obsolete], но это рабочий публичный API 1.2. -->
+    <NoWarn>CS0618</NoWarn>
+  </PropertyGroup>
+
+  <!-- Пути: переопределяются через -p:ShapezPath=... -p:ModsDir=... -->
+  <PropertyGroup>
+    <ShapezPath Condition="'$(ShapezPath)' == ''">/Applications/shapez 2.app/Contents/Resources/Data/Managed</ShapezPath>
+    <ModsDir Condition="'$(ModsDir)' == ''">$(HOME)/Library/Application Support/com.tobspr.shapez-2/mods</ModsDir>
+    <ModOutputDir>$(ModsDir)/FastForwarder/</ModOutputDir>
+    <OutputPath>$(ModOutputDir)</OutputPath>
+  </PropertyGroup>
+
+  <!-- Игровые сборки: только для компиляции, в мод не копируются -->
+  <ItemGroup>
+    <Reference Include="Core">
+      <HintPath>$(ShapezPath)/Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Game.Core.Modding">
+      <HintPath>$(ShapezPath)/Game.Core.Modding.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="SPZGameAssembly">
+      <HintPath>$(ShapezPath)/SPZGameAssembly.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="UnityEngine">
+      <HintPath>$(ShapezPath)/UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ShapezPath)/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(ShapezPath)/UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(ShapezPath)/UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(ShapezPath)/UnityEngine.UIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(ShapezPath)/UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Файлы мода кладутся рядом со сборкой -->
+  <ItemGroup>
+    <None Include="../manifest.json" Link="manifest.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../README.md" Link="README.md" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+{
+  "Version": "1.0.7",
+  "Description": "Click-and-go simulation speed toolbar: pause, 1x, 5x, 10x and 25x. Ported from the BepInEx version to the native shapez 2 1.2 mod loader.",
+  "Author": "yujis (port for shapez 2 1.2)",
+  "SavedModVersionCompabilityRangeWithSelf": "<2.0.0",
+  "GameVersionSupportRange": "*",
+  "AffectsSaveGames": false,
+  "DisablesAchievements": false,
+  "Conflicts": [],
+  "Dependencies": [],
+  "Assemblies": [
+    "FastForwarder.dll"
+  ]
+}
